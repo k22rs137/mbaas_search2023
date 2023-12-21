@@ -61,6 +61,17 @@
                 }) 
             }
 
+            function searchDamage() {
+            let hp = parseInt($("#damage").val(), 10); 
+            let TestDataClass = ncmb.DataStore(db); 
+            TestDataClass 
+            .greaterThan("defence", hp)
+            .fetchAll() 
+            .then(function(results) { 
+                showResults(results); 
+                })
+            }
+
 
 
         function showResults(results) {
@@ -100,11 +111,11 @@
         <button class="btn" onclick="fetchAll()">Fetch All</button>
         <button class="btn" onclick="searchName()">Name</button>
         <br>
-        <button class="btn" onclick="searchLevel()LT">Level &LT</button>
+        <button class="btn" onclick="searchLevelLT()">Level &LT</button>
         <button class="btn" onclick="searchLevel()">Level </button>
         <button class="btn" onclick="searchLevelGT()">Level &gt</button>
         <br>
-        <button class="btn" onclick="searchDamage">Damage</button>
+        <button class="btn" onclick="searchDamage()">Damage</button>
 
     </div>
     <div id="message">message area</div>
